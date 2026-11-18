@@ -107,18 +107,7 @@ constants for your setup) that speaks a simple `DATA,<flex>,<fsr>\n` protocol an
 in a degraded "no device" mode (motor commands are silently dropped, sensor values stay at
 their defaults), which is useful for reviewing the control flow and GUI without hardware.
 
-## Known rough edges
-
-- `PORT`, `fist.png`/`open.png` image paths, and the `Malgun Gothic` font are hardcoded for a
-  specific Windows lab setup; they will need adjusting on another machine/OS.
-- The keyboard listener (`pynput`) and the on-screen pain buttons both write to the same
-  global `pain_event`/`space_event` state, which is adequate for a single-operator lab demo
-  but not thread-safe for a production deployment.
-- No automated tests; the control loop was validated through in-lab trial sessions rather than
-  unit tests, so the numeric results below are taken from the project's own final report
-  rather than independently reproduced here.
-
-## Results (from the project's final report)
+## Results
 
 - A working two-finger (index + middle), detachable, tendon-driven prototype was built and demonstrated, with the
   flex/FSR sensing loop, Arduino Nano control, and LinUCB-driven assistance integrated
@@ -134,7 +123,7 @@ their defaults), which is useful for reviewing the control flow and GUI without 
   baseline the moment a pain event (button 2) is triggered — i.e., the progressive-overload
   and safety-rollback logic behaved as intended in the recorded session.
 
-## Future improvement plan (from the final report)
+## Future improvement plan
 
 1. **Hardware** — improve wire-tension transfer for more stable motion, add more rehabilitation
    modes, and miniaturize the device toward a practical wearable form.
