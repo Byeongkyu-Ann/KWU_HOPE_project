@@ -6,7 +6,7 @@ neurological injury, paired with a **contextual-bandit (LinUCB) reinforcement-le
 controller** that adapts motor speed to each patient's pain feedback in real time.
 
 > This repository packages the project's control/GUI software for a public portfolio. The
-> hardware (glove, scissor-linkage joints, bellows, wiring) and the Arduino-side firmware are
+> hardware and the Arduino-side firmware are
 > not included; this repo covers the PC-side Python application that runs the rehabilitation
 > logic, drives the motors over serial, and renders the clinician-facing GUI.
 
@@ -22,13 +22,10 @@ controller** that adapts motor speed to each patient's pain feedback in real tim
 ## Approach
 
 **Hardware concept.** A fabric glove carries a Velcro-mounted, silicone wire guide per finger
-that routes the tendon wire along the dorsal side, driven by a servo motor per finger
-(tendon-driven, under the glove — the project's early proposal called for a plastic
-scissor-mechanism joint and a rubber bellows joint, but the built/demonstrated prototype
-replaced both with this simpler Velcro + silicone-wire-guide mount). A flex sensor on the back
-of the finger measures joint angle; an FSR (force) sensor in the palm measures grip force. An
-Arduino Nano reads the sensors and drives the servo(s); the PC side (this repo) hosts the
-control logic and the clinician UI.
+that routes the tendon wire along the dorsal side, driven by a servo motor per finger. 
+A flex sensor on the back of the finger measures joint angle; an FSR (force) sensor in 
+the palm measures grip force. An Arduino Nano reads the sensors and drives the servo(s);
+the PC side (this repo) hosts the control logic and the clinician UI.
 
 **Control software — three layers:**
 
@@ -57,16 +54,15 @@ control logic and the clinician UI.
    cycle-by-cycle log to Excel and renders a 3-panel Matplotlib summary (ROM growth curve,
    pain-event pie chart, pain-location scatter along the finger's flex range).
 
-## Hardware (as built)
+## Hardware
 
 The final, demonstrated prototype is a **two-finger** (index + middle) tendon-driven unit with
 a **detachable** strap/tendon assembly — it can be re-mounted onto whichever finger needs
 treatment rather than building out all five fingers at once. The build consists of a fabric
-glove, a 3D-printed servo mounting bracket with a Velcro + silicone wire-guide tendon mount
-(no scissor-linkage or bellows joint — those were in the project's early proposal but dropped
-in the built prototype in favor of this simpler mount), a battery/driver circuit box, and a
-separate finger-grip-strength measurement switch used during calibration. No lab/school budget
-was used; parts were self-funded and the mechanical components were 3D-printed.
+glove, a 3D-printed servo mounting bracket with a Velcro + silicone wire-guide tendon mount, 
+a battery/driver circuit box, and a separate finger-grip-strength measurement switch used 
+during calibration. No lab/school budget was used; parts were self-funded and 
+the mechanical components were 3D-printed.
 
 ## Open-source components
 
